@@ -1,5 +1,5 @@
 # Estimating the effect of bariatric surgery on cardiovascular events using observational data?
-### Analytic code for bariatric analysis including synthetic data
+### Analytic code for main analysis including generation of synthetic data
 
 BACKGROUND: Observational studies have reported strongly protective effects of bariatric surgery on cardiovascular disease, but with oversimplified definitions of the intervention, eligibility criteria, and follow-up, which deviate from the design a randomized trial would follow. We describe how to study the effect of bariatric surgery on cardiovascular disease without introducing these biases, which may not be entirely possible with existing observational data.
 
