@@ -26,14 +26,13 @@ bootstrap_single_interval_function <- function(followup_years,
                            nrows = Inf) %>% {.[complete.cases(.),]}
   dat <- data_prep_function(dat=dat, truncate_years=truncate_years)
   argg <- as.list(environment())
-  # dat <- do.call(single_interval_restriction_function, c(argg, list(.dat=dat)))
   
   print("creating model matrix")
   mat <- moma(dat=dat, ipw.formula_d=ipw.formula_d) # model matrix
   mat_n <- NULL
   
   if(censor_surgery){
-    # creates *synthetic* date of surgery for 10% of individuals who were "assigned" not to undergo surgery
+    # only required if using synthetic dataset: creates *synthetic* date of surgery for 10% of individuals who were "assigned" not to undergo surgery - this should NOT be done for a true analysis (this is only required because of the synthetic dataset)
     surgery_vector <- sample(dat$id.new[dat$y_surgery==0], size = sum(dat$y_surgery==0)*0.1)
     dat$tstart.new2 <- NA
     dat$tstart.new2[surgery_vector] <- dat$tstart.new[surgery_vector]*(runif(length(surgery_vector), min = 0, max = 1))
