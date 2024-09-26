@@ -98,13 +98,5 @@ synth_gp <- function(){
                      max_int=floor(runif(n=num.id.new, min=1, max=150)))
   setDT(dat_y)
   data.table::fwrite(dat_y, file = here::here("synthetic-data","grace-period-Y.txt"))
-  # 
-  # smoking_grid = data.table(scrssn=1:length, date_baseline=as.Date("2005-01-01"), smoking_status=rbinom(n=length, prob=0.3, size=1))
-  # ifelse(!dir.exists(file.path(prefix, "covariate-objects")),
-  #        dir.create(file.path(prefix, "covariate-objects")), FALSE)
-  # data.table::fwrite(smoking_grid, file=here::here("covariate-objects", "smoking-grid.csv"))
-  # 
-  # diabetes = data.table(scrssn=1:length, first_date_dx=as.Date("2005-01-01"))
-  # data.table::fwrite(diabetes, file=here::here("covariate-objects", "diabetes.csv"))
 }
 synth_gp()
